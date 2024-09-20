@@ -1,11 +1,8 @@
-import { useState } from 'react'
+import "@mantine/core/styles.css";
+import { MantineProvider } from "@mantine/core";
 
 function App() {
-
-  return (
-    <>
-    </>
-  )
+  return <MantineProvider></MantineProvider>;
 }
 
-export default App
+export default App;
