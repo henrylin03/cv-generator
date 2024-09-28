@@ -1,0 +1,318 @@
+@font-face {
+  font-family: "DM Sans";
+  src:
+    url("../../public/fonts/DM_Sans/dmsans-variablefont_opszwght-webfont.woff2") format("woff2"),
+    url("../../public/fonts/DM_Sans/dmsans-variablefont_opszwght-webfont.woff") format("woff"),
+    url("../../public/fonts/DM_Sans/DMSans-VariableFont_opsz\,wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Arizonia";
+  src:
+    url("../../public/fonts/Arizonia/arizonia-regular-webfont.woff2") format("woff2"),
+    url("../../public/fonts/Arizonia/arizonia-regular-webfont.woff") format("woff"),
+    url("../../public/fonts/Arizonia/Arizonia-Regular.ttf") format("truetype");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+  text-wrap: pretty;
+}
+
+body {
+  padding: 24px 48px;
+  background-color: #F1F6FD;
+}
+
+#root {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+
+  /* variables */
+  --divider: 1.5px solid #E8E8E8;
+
+  --primary-colour: #00ccb8;
+  --primary-colour-darker: #00A9AD;
+  --secondary-colour: #25677B;
+  --grey-colour: #8490b3;
+  --dark-grey-colour: #596780;
+  --light-grey-colour: hsl(0, 0%, 75%);
+  --error-colour: #ff6b6b;
+}
+
+h2 {
+  font-size: 20px;
+  color: var(--secondary-colour);
+}
+
+.card {
+  border-radius: 8px;
+}
+
+section>.card {
+  padding: 24px 36px 42px 36px;
+}
+
+.primary-button,
+.destructive-button {
+  border-radius: 6px;
+  border-width: 2px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  display: none;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+}
+
+label:not(.presentPosition) {
+  font-size: .85rem;
+  font-weight: bold;
+  color: var(--dark-grey-colour);
+}
+
+input,
+textarea,
+.dateInput>div>button {
+  outline: none;
+  border: 2px solid #DEE1E6;
+  border-radius: 4px;
+  background-color: #F7F8F9;
+  width: 100%;
+  font: inherit !important;
+  padding: 8px 12px;
+}
+
+input::placeholder {
+  overflow: visible;
+  color: var(--light-grey-colour);
+}
+
+input:focus,
+textarea:focus {
+  border: 2.5px solid var(--primary-colour);
+}
+
+textarea {
+  resize: none;
+}
+
+/* LEFT SIDE (header, forms etc) */
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* HEADER */
+header .card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 8px 36px;
+}
+
+.branding {
+  font-family: "Arizonia", cursive;
+  font-weight: normal;
+  color: var(--primary-colour-darker);
+}
+
+.button-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+}
+
+/* PERSONAL DETAILS */
+.personalDetails>div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.personalDetails .grid {
+  grid-template-columns: 1.5fr 1fr;
+}
+
+/* EDUCATION */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.previousEntries {
+  border-top: var(--divider);
+  gap: 0;
+}
+
+.previousEntry {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: var(--divider);
+  padding: 12px 0;
+}
+
+.summary {
+  display: flex;
+  flex-direction: column;
+}
+
+.degree,
+.jobTitle {
+  font-weight: bold;
+  font-size: .9rem;
+}
+
+.school,
+.employer {
+  font-size: .8rem;
+}
+
+.dates {
+  font-size: .8rem;
+  color: #A1A1A1;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.educationSection .grid,
+.experienceSection .grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.educationSection .button-group,
+.experienceSection .button-group {
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+.mantine-Popover-dropdown td>button[data-selected="true"] {
+  background-color: #00ccb8;
+}
+
+/* EXPERIENCE SECTION SPECIFIC */
+.presentPositionCheckbox {
+  grid-column: 2;
+  margin-left: 2px;
+}
+
+.presentPositionCheckbox label {
+  font-weight: normal;
+  color: var(--dark-grey-colour);
+  margin-top: 1px;
+}
+
+
+/* CV PREVIEW SECTION */
+.cvPreview {
+  grid-column-start: 2;
+  justify-self: center;
+  --dark-colour: #2f4858;
+  --light-colour: hsl(206, 30%, 94%);
+  --indent: 12px;
+}
+
+.cvPreview .paper {
+  aspect-ratio: 1 / 1.414;
+  max-width: 1240px;
+  height: 100dvh;
+  max-height: 1754px;
+}
+
+.personalDetailsDisplayed {
+  background-color: var(--dark-colour);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 24px;
+}
+
+.personalDetailsDisplayed>* {
+  color: white;
+}
+
+.fullNameDisplayed {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 2rem;
+}
+
+.contactDetailsDisplayed {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  font-size: small;
+}
+
+.contactDetailsDisplayed .container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.previewMainSection {
+  padding: 36px 40px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.previewMainSection p {
+  font-size: .8rem;
+}
+
+.previewMainSection .title {
+  background-color: var(--light-colour);
+  color: var(--dark-colour);
+  font-weight: 800;
+  font-size: .9rem;
+  padding: 8px var(--indent);
+}
+
+.entry {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 0 24px;
+  padding: 12px 0 12px var(--indent);
+}
+
+.datesDisplayed {
+  grid-column: 1 / 2;
+}
+
+.degreeDisplayed,
+.positionDisplayed {
+  font-weight: 700;
+}
+
+.descriptionDisplayed {
+  margin-top: 8px;
+}

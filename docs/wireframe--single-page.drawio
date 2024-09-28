@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" version="24.7.16">
   <diagram name="Page-1" id="PRZS8lZKRYY2VSGGr3TJ">
-    <mxGraphModel dx="6001" dy="3690" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1456" dy="2372" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -562,6 +562,12 @@
         <mxCell id="M1QpUfeUCg4roTGGK431-410" value="" style="rounded=1;arcSize=5;fillColor=#F7F8F9;align=left;spacingLeft=5;strokeColor=#DEE1E6;html=1;strokeWidth=2;fontSize=16;fontFamily=Helvetica;fontColor=#B3B3B3;labelBackgroundColor=none;" vertex="1" parent="M1QpUfeUCg4roTGGK431-408">
           <mxGeometry y="25.68027210884354" width="830" height="200.3061224489796" as="geometry" />
         </mxCell>
+        <mxCell id="M1QpUfeUCg4roTGGK431-412" value="it might be better to not show previous entries to avoid issues when user wants to edit one in the middle of adding a new one?" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;fontColor=#000000;labelBackgroundColor=none;fillColor=#fa6800;strokeColor=#C73500;" vertex="1" parent="M1QpUfeUCg4roTGGK431-284">
+          <mxGeometry x="-40" y="570" width="120" height="142.53" as="geometry" />
+        </mxCell>
+        <mxCell id="M1QpUfeUCg4roTGGK431-413" value="Start date cannot be in the future" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Courier New;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="M1QpUfeUCg4roTGGK431-284">
+          <mxGeometry x="-60" y="1050" width="120" height="130" as="geometry" />
+        </mxCell>
         <mxCell id="M1QpUfeUCg4roTGGK431-340" value="" style="group" vertex="1" connectable="0" parent="1">
           <mxGeometry x="3320" y="1600" width="1920" height="1390" as="geometry" />
         </mxCell>
@@ -699,6 +705,9 @@
         </mxCell>
         <mxCell id="M1QpUfeUCg4roTGGK431-407" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.acute_triangle;dx=0.5;rotation=-180;fillColor=#B3B3B3;aspect=fixed;strokeColor=none;" vertex="1" parent="M1QpUfeUCg4roTGGK431-405">
           <mxGeometry x="159" y="46.13000000000011" width="8" height="6.74" as="geometry" />
+        </mxCell>
+        <mxCell id="M1QpUfeUCg4roTGGK431-411" value="&lt;font face=&quot;Courier New&quot;&gt;if a user refreshes page or leaves, give browser warning that things will be deleted!&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="1580" y="-110" width="150" height="90" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
