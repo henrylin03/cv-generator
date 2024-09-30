@@ -34,6 +34,7 @@ body {
 
   /* variables */
   --divider: 1.5px solid #E8E8E8;
+  --card-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.1);
 
   --primary-colour: #00ccb8;
   --primary-colour-darker: #00A9AD;
@@ -45,16 +46,33 @@ body {
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 1rem;
   color: var(--secondary-colour);
 }
 
-.card {
-  border-radius: 8px;
+.card,
+.collapsedSection {
+  border-radius: 10px;
 }
 
-section>.card {
-  padding: 24px 36px 42px 36px;
+.card {
+  box-shadow: var(--card-shadow);
+}
+
+.collapsedSection {
+  padding: 8px 28px;
+  background-color: white;
+}
+
+.panel {
+  padding: 12px;
+  margin-top: -12px;
+}
+
+.mantine-Accordion-item {
+  border: none;
+  border-radius: 10px;
+  box-shadow: var(--card-shadow)
 }
 
 .primary-button,
@@ -144,19 +162,21 @@ header .card {
   gap: 16px;
 }
 
-/* PERSONAL DETAILS */
-.personalDetails>div {
+/* MAIN SECTION */
+.main {
+  margin-top: 12px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
 }
 
+/* PERSONAL DETAILS */
 .personalDetails .grid {
   grid-template-columns: 1.5fr 1fr;
 }
 
 /* EDUCATION */
-.card {
+.educationSection,
+.experienceSection {
   display: flex;
   flex-direction: column;
   gap: 24px;
