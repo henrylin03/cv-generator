@@ -7,14 +7,11 @@ export default function EducationSection() {
   const [entries, setEntries] = useState([]);
 
   const toggleForm = () => setFormOpen(!formOpen);
-  const addNewEducation = (newEntry) => {
-    setEntries([...entries, newEntry]);
-    console.log(entries);
-  };
+  const addNewEducation = (newEntry) => setEntries([...entries, newEntry]);
 
   return (
     <article className="educationSection">
-      {formOpen ? (
+      {!entries.length || formOpen ? (
         <EducationForm
           toggleForm={toggleForm}
           addNewEducation={addNewEducation}
