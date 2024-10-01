@@ -2,13 +2,27 @@ import { useState } from "react";
 import { Checkbox } from "@mantine/core";
 import { MonthPickerInput } from "@mantine/dates";
 
-export default function DateSelector({ isProfessionalExperience = false }) {
+export default function DateSelector({
+  isProfessionalExperience = false,
+  formValues,
+  setFormValues,
+}) {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [positionIsPresent, setPositionIsPresent] = useState(false);
 
   const handleCheckForPresentPosition = (event) =>
     setPositionIsPresent(event.currentTarget.checked);
+
+  const handleStartDateChange = (event) => {
+    setStartDate(event);
+    setFormValues({ ...formValues, startDate: event });
+  };
+
+  const handleEndDateChange = (event) => {
+    setEndDate(event);
+    setFormValues({ ...formValues, endDate: event });
+  };
 
   return (
     <ul className="grid">
@@ -20,7 +34,7 @@ export default function DateSelector({ isProfessionalExperience = false }) {
           clearable
           className="dateInput"
           value={startDate}
-          onChange={setStartDate}
+          onChange={handleStartDateChange}
         />
       </li>
       <li>
@@ -34,7 +48,7 @@ export default function DateSelector({ isProfessionalExperience = false }) {
           minDate={startDate}
           maxDate={isProfessionalExperience && new Date()}
           value={positionIsPresent ? null : endDate}
-          onChange={setEndDate}
+          onChange={handleEndDateChange}
         />
       </li>
       {isProfessionalExperience && (

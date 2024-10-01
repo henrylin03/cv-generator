@@ -240,7 +240,10 @@ header .card {
 .educationSection .button-group,
 .experienceSection .button-group {
   justify-content: flex-end;
-  margin-top: 12px;
+}
+
+.educationSection .button-group {
+  margin-top: 48px;
 }
 
 .mantine-Popover-dropdown td>button[data-selected="true"] {
@@ -258,7 +261,6 @@ header .card {
   color: var(--dark-grey-colour);
   margin-top: 1px;
 }
-
 
 /* CV PREVIEW SECTION */
 .cvPreview {

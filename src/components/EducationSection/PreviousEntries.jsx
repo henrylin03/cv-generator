@@ -1,7 +1,7 @@
 import { ActionIcon, Button } from "@mantine/core";
 import { IconPencil, IconTrashX, IconCirclePlus } from "@tabler/icons-react";
 
-export default function PreviousEntries({ handleAddNewEntry }) {
+export default function PreviousEntries({ toggleForm }) {
   // const previouslyAddedEntries = [
   //   {
   //     degree: "Masters of Data Science",
@@ -83,7 +83,7 @@ export default function PreviousEntries({ handleAddNewEntry }) {
         variant="outline"
         size="md"
         className="addAnotherButton"
-        onClick={handleAddNewEntry}
+        onClick={toggleForm}
       >
         Add another education
       </Button>
