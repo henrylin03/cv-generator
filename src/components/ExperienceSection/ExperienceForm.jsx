@@ -1,13 +1,7 @@
-import { useState } from "react";
 import DateSelector from "../DateSelector";
-import { Button, Checkbox } from "@mantine/core";
+import { Button } from "@mantine/core";
 
-export default function ExperienceForm({toggleForm}) {
-  const [positionIsPresent, setPositionIsPresent] = useState(false);
-
-  const handleCheckForPresentPosition = (event) =>
-    setPositionIsPresent(event.currentTarget.checked);
-
+export default function ExperienceForm({ toggleForm }) {
   const handleSaveNewEntry = () => toggleForm();
 
   return (
@@ -22,20 +16,7 @@ export default function ExperienceForm({toggleForm}) {
           <input type="text" id="employerInput" placeholder="ANZ Plus" />
         </li>
         <li className="dateSelectors">
-          <ul className="grid">
-            <DateSelector
-              isPresent={positionIsPresent}
-              isProfessionalExperience={true}
-            />
-            <Checkbox
-              label="I still work here"
-              color="#00A9AD"
-              size="xs"
-              checked={positionIsPresent}
-              onChange={handleCheckForPresentPosition}
-              className="presentPositionCheckbox"
-            />
-          </ul>
+          <DateSelector isProfessionalExperience={true} />
         </li>
         <li>
           <label htmlFor="jobDescription">

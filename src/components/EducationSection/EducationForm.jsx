@@ -3,7 +3,7 @@ import { Button } from "@mantine/core";
 
 export default function EducationForm({ toggleForm }) {
   const handleSaveNewEntry = () => toggleForm();
-  
+
   return (
     <>
       <ul>
@@ -26,9 +26,7 @@ export default function EducationForm({ toggleForm }) {
           />
         </li>
         <li className="dateSelectors">
-          <ul className="grid">
-            <DateSelector />
-          </ul>
+          <DateSelector />
         </li>
       </ul>
 
