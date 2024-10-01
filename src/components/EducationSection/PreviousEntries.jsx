@@ -29,7 +29,7 @@ export default function PreviousEntries({ educationEntries, toggleForm }) {
           </p>
           <p className="school">{entry.school}</p>
           <p className="dates">
-            {dateToMonthYearSummarised(entry.startDate)}
+            {entry.startDate && dateToMonthYearSummarised(entry.startDate)}
             {entry.endDate && ` - ${dateToMonthYearSummarised(entry.endDate)}`}
           </p>
         </div>
