@@ -2,7 +2,7 @@ import { useState } from "react";
 import DateSelector from "../DateSelector";
 import { Button } from "@mantine/core";
 
-export default function EducationForm({ toggleForm, addNewEducation }) {
+export default function EducationForm({ toggleForm, addNewEducation, handleCancel }) {
   const [formValues, setFormValues] = useState({
     degree: "",
     major: "",
@@ -78,7 +78,7 @@ export default function EducationForm({ toggleForm, addNewEducation }) {
           variant="outline"
           color="#8490b3"
           className="destructive-button"
-          onClick={toggleForm}
+          onClick={handleCancel}
         >
           Cancel
         </Button>

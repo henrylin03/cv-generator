@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { MantineProvider, Accordion } from "@mantine/core";
 
 // components
@@ -13,6 +14,9 @@ import "@mantine/dates/styles.css";
 import "./styles/index.css";
 
 function App() {
+  const [openedAccordionValue, setOpenedAccordionValue] =
+    useState("Personal Details");
+
   const sectionComponents = [
     {
       name: "Personal Details",
@@ -20,7 +24,9 @@ function App() {
     },
     {
       name: "Education",
-      component: <EducationSection />,
+      component: (
+        <EducationSection setOpenedAccordionValue={setOpenedAccordionValue} />
+      ),
     },
     {
       name: "Experience",
@@ -43,8 +49,9 @@ function App() {
         <Header />
         <Accordion
           variant="separated"
-          defaultValue="Personal Details"
           className="main"
+          value={openedAccordionValue}
+          onChange={setOpenedAccordionValue}
         >
           {sections}
         </Accordion>
