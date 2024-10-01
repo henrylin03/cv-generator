@@ -142,7 +142,7 @@ header .card {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 8px 36px;
+  padding: 8px 28px;
 }
 
 .branding {
@@ -167,6 +167,16 @@ header .card {
   margin-top: 12px;
   display: flex;
   flex-direction: column;
+}
+
+.addAnotherButton {
+  border: 2px var(--primary-colour) solid;
+  border-radius: 6px;
+  font-size: .85rem;
+}
+
+.addAnotherButton>span {
+  gap: 8px;
 }
 
 /* PERSONAL DETAILS */
@@ -230,7 +240,7 @@ header .card {
 .educationSection .button-group,
 .experienceSection .button-group {
   justify-content: flex-end;
-  margin-top: 24px;
+  margin-top: 12px;
 }
 
 .mantine-Popover-dropdown td>button[data-selected="true"] {
