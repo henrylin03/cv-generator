@@ -20,7 +20,7 @@ export default function EducationSection() {
           addNewEducation={addNewEducation}
         />
       ) : (
-        <PreviousEntries toggleForm={toggleForm} />
+        <PreviousEntries educationEntries={entries} toggleForm={toggleForm} />
       )}
     </article>
   );

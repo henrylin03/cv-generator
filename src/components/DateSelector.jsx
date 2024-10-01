@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Checkbox } from "@mantine/core";
 import { MonthPickerInput } from "@mantine/dates";
+import { dateToMonthYear } from "../helpers/dates";
 
 export default function DateSelector({
   isProfessionalExperience = false,
@@ -16,12 +17,12 @@ export default function DateSelector({
 
   const handleStartDateChange = (event) => {
     setStartDate(event);
-    setFormValues({ ...formValues, startDate: event });
+    setFormValues({ ...formValues, startDate: dateToMonthYear(event) });
   };
 
   const handleEndDateChange = (event) => {
     setEndDate(event);
-    setFormValues({ ...formValues, endDate: event });
+    setFormValues({ ...formValues, endDate: dateToMonthYear(event) });
   };
 
   return (

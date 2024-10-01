@@ -9,6 +9,7 @@ export default function EducationForm({ toggleForm, addNewEducation }) {
     school: "",
     startDate: "",
     endDate: "",
+    key: crypto.randomUUID,
   });
 
   const handleNonDateInputChange = (event) =>
@@ -19,7 +20,6 @@ export default function EducationForm({ toggleForm, addNewEducation }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    
     addNewEducation(formValues);
     toggleForm();
   };
