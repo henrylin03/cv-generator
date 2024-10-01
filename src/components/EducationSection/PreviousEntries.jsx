@@ -19,22 +19,24 @@ const ChangeEntryButtons = () => (
 );
 
 export default function PreviousEntries({ educationEntries, toggleForm }) {
-  const previousEntries = educationEntries.map((entry) => (
-    <li className="previousEntry" key={entry.key}>
-      <div className="summary">
-        <p className="degree">
-          {entry.degree}
-          <span className="major">{entry.major && ` (${entry.major})`}</span>
-        </p>
-        <p className="school">{entry.school}</p>
-        <p className="dates">
-          {dateToMonthYearSummarised(entry.startDate)}
-          {entry.endDate && ` - ${dateToMonthYearSummarised(entry.endDate)}`}
-        </p>
-      </div>
-      <ChangeEntryButtons />
-    </li>
-  ));
+  const previousEntries = educationEntries.map((entry) => {
+    return (
+      <li className="previousEntry" key={entry.key}>
+        <div className="summary">
+          <p className="degree">
+            {entry.degree}
+            <span className="major">{entry.major && ` (${entry.major})`}</span>
+          </p>
+          <p className="school">{entry.school}</p>
+          <p className="dates">
+            {dateToMonthYearSummarised(entry.startDate)}
+            {entry.endDate && ` - ${dateToMonthYearSummarised(entry.endDate)}`}
+          </p>
+        </div>
+        <ChangeEntryButtons />
+      </li>
+    );
+  });
 
   return (
     <>
