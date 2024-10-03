@@ -6,20 +6,22 @@ export default function EducationSection({ setOpenedAccordionValue }) {
   const [formOpen, setFormOpen] = useState(false);
   const [entries, setEntries] = useState([]);
 
-  const toggleForm = () => setFormOpen(!formOpen);
+  const openForm = () => setFormOpen(true);
+  const closeForm = () => setFormOpen(false);
   const addNewEducation = (newEntry) => setEntries([...entries, newEntry]);
-  const handleCancel = () => entries.length > 0 ? toggleForm() : setOpenedAccordionValue("Experience")
+  const handleCancel = () =>
+    entries.length > 0 ? closeForm() : setOpenedAccordionValue("Experience");
 
   return (
     <article className="educationSection">
       {!entries.length || formOpen ? (
         <EducationForm
-          toggleForm={toggleForm}
+          closeForm={closeForm}
           addNewEducation={addNewEducation}
           handleCancel={handleCancel}
         />
       ) : (
-        <PreviousEntries educationEntries={entries} toggleForm={toggleForm} />
+        <PreviousEntries educationEntries={entries} openForm={openForm} />
       )}
     </article>
   );

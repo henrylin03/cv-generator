@@ -18,7 +18,7 @@ const ChangeEntryButtons = () => (
   </div>
 );
 
-export default function PreviousEntries({ educationEntries, toggleForm }) {
+export default function PreviousEntries({ educationEntries, openForm }) {
   const previousEntries = educationEntries.map((entry) => {
     return (
       <li className="previousEntry" key={entry.key}>
@@ -47,7 +47,7 @@ export default function PreviousEntries({ educationEntries, toggleForm }) {
         variant="outline"
         size="md"
         className="addAnotherButton"
-        onClick={toggleForm}
+        onClick={openForm}
       >
         Add another education
       </Button>
