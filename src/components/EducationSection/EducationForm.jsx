@@ -1,5 +1,6 @@
 import { useState } from "react";
 import DateSelector from "../DateSelector";
+import { validateRequiredInput } from "../../helpers/formValidation";
 import { Button } from "@mantine/core";
 
 export default function EducationForm({
@@ -14,15 +15,6 @@ export default function EducationForm({
     startDate: "",
     endDate: "",
   });
-
-  const validateRequiredInput = (inputElement) => {
-    if (!inputElement.hasAttribute("required")) return;
-
-    const containerElement = inputElement.parentElement;
-    if (inputElement.checkValidity())
-      containerElement.classList.remove("error");
-    else containerElement.classList.add("error");
-  };
 
   // HANDLERS
   const handleInputBlur = (event) => validateRequiredInput(event.currentTarget);
