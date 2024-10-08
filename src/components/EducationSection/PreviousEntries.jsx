@@ -1,22 +1,7 @@
-import { ActionIcon, Button } from "@mantine/core";
-import { IconPencil, IconTrashX, IconCirclePlus } from "@tabler/icons-react";
+import { Button } from "@mantine/core";
+import { IconCirclePlus } from "@tabler/icons-react";
 import { dateToMonthYearSummarised } from "../../helpers/dates";
-
-const ChangeEntryButtons = () => (
-  <div className="icons">
-    <ActionIcon variant="transparent" color="gray" size="lg" aria-label="Edit">
-      <IconPencil style={{ width: "70%", height: "70%" }} />
-    </ActionIcon>
-    <ActionIcon
-      variant="transparent"
-      color="gray"
-      size="lg"
-      aria-label="Delete"
-    >
-      <IconTrashX style={{ width: "70%", height: "70%" }} />
-    </ActionIcon>
-  </div>
-);
+import ChangeEntryButtons from "../ChangeEntryButtons";
 
 export default function PreviousEntries({ educationEntries, openForm }) {
   const previousEntries = educationEntries.map((entry) => {
@@ -41,6 +26,7 @@ export default function PreviousEntries({ educationEntries, openForm }) {
   return (
     <>
       <ul className="previousEntries">{previousEntries}</ul>
+      
       <Button
         leftSection={<IconCirclePlus />}
         color="#00ccb8"

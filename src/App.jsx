@@ -30,7 +30,9 @@ function App() {
     },
     {
       name: "Experience",
-      component: <ExperienceSection />,
+      component: (
+        <ExperienceSection setOpenedAccordionValue={setOpenedAccordionValue} />
+      ),
     },
   ];
 

@@ -12,8 +12,13 @@ export default function DateSelector({
   const [endDate, setEndDate] = useState(null);
   const [positionIsPresent, setPositionIsPresent] = useState(false);
 
-  const handleCheckForPresentPosition = (event) =>
+  const handleCheckForPresentPosition = (event) => {
     setPositionIsPresent(event.currentTarget.checked);
+    setFormValues({
+      ...formValues,
+      endDate: "Present",
+    });
+  };
 
   const handleStartDateChange = (event) => {
     setStartDate(event);
@@ -22,7 +27,10 @@ export default function DateSelector({
 
   const handleEndDateChange = (event) => {
     setEndDate(event);
-    setFormValues({ ...formValues, endDate: dateToMonthYear(event) });
+    setFormValues({
+      ...formValues,
+      endDate: dateToMonthYear(event),
+    });
   };
 
   return (

@@ -280,6 +280,11 @@ header .card {
   margin-top: 1px;
 }
 
+.experienceSection .button-group {
+  margin-top: 22px;
+}
+
+
 /* CV PREVIEW SECTION */
 .cvPreview {
   grid-column-start: 2;

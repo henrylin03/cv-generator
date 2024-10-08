@@ -1,61 +1,35 @@
-import { ActionIcon, Button } from "@mantine/core";
-import { IconPencil, IconTrashX, IconCirclePlus } from "@tabler/icons-react";
+import { Button } from "@mantine/core";
+import { IconCirclePlus } from "@tabler/icons-react";
+import { dateToMonthYearSummarised } from "../../helpers/dates";
+import ChangeEntryButtons from "../ChangeEntryButtons";
 
-export default function PreviousEntries({ handleAddNewEntry }) {
+export default function PreviousEntries({ experienceEntries, openForm }) {
+  const displayEndDate = (endDate) => {
+    if (!endDate) return;
+    if (endDate === "Present") return "Present";
+    return dateToMonthYearSummarised(endDate);
+  };
+
+  const previousEntries = experienceEntries.map((entry) => {
+    return (
+      <li className="previousEntry" key={entry.key}>
+        <div className="summary">
+          <p className="jobTitle">{entry.jobTitle}</p>
+          <p className="employer">{entry.employer}</p>
+          <p className="dates">
+            {entry.startDate &&
+              `${dateToMonthYearSummarised(entry.startDate)} - `}
+            {displayEndDate(entry.endDate)}
+          </p>
+        </div>
+        <ChangeEntryButtons />
+      </li>
+    );
+  });
+
   return (
     <>
-      <ul className="previousEntries">
-        <li className="previousEntry">
-          <div className="summary">
-            <p className="jobTitle">Senior Risk Analyst</p>
-            <p className="employer">Westpac</p>
-            <p className="dates">Sep 2020 - Present</p>
-          </div>
-          <div className="icons">
-            <ActionIcon
-              variant="transparent"
-              color="gray"
-              size="lg"
-              aria-label="Edit"
-            >
-              <IconPencil style={{ width: "70%", height: "70%" }} />
-            </ActionIcon>
-            <ActionIcon
-              variant="transparent"
-              color="gray"
-              size="lg"
-              aria-label="Delete"
-            >
-              <IconTrashX style={{ width: "70%", height: "70%" }} />
-            </ActionIcon>
-          </div>
-        </li>
-        <li className="previousEntry">
-          <div className="summary">
-            <p className="jobTitle">Associate Analyst</p>
-            <p className="employer">Telstra</p>
-            <p className="dates">Mar 2014 - 2017</p>
-          </div>
-          <div className="icons">
-            <ActionIcon
-              variant="transparent"
-              color="gray"
-              size="lg"
-              aria-label="Edit"
-            >
-              <IconPencil style={{ width: "70%", height: "70%" }} />
-            </ActionIcon>
-            <ActionIcon
-              variant="transparent"
-              color="gray"
-              size="lg"
-              aria-label="Delete"
-            >
-              <IconTrashX style={{ width: "70%", height: "70%" }} />
-            </ActionIcon>
-          </div>
-        </li>
-      </ul>
+      <ul className="previousEntries">{previousEntries}</ul>
 
       <Button
         leftSection={<IconCirclePlus />}
@@ -63,7 +37,7 @@ export default function PreviousEntries({ handleAddNewEntry }) {
         variant="outline"
         size="md"
         className="addAnotherButton"
-        onClick={handleAddNewEntry}
+        onClick={openForm}
       >
         Add another experience
       </Button>
