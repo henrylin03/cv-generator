@@ -16,22 +16,42 @@ import "./styles/index.css";
 function App() {
   const [openedAccordionValue, setOpenedAccordionValue] =
     useState("Personal Details");
+  const [personalDetails, setPersonalDetails] = useState({
+    name: "",
+    email: "",
+    phone: "",
+  });
+  const [educationEntries, setEducationEntries] = useState([]);
+  const [experienceEntries, setExperienceEntries] = useState([]);
 
   const sectionComponents = [
     {
       name: "Personal Details",
-      component: <PersonalDetailsSection />,
+      component: (
+        <PersonalDetailsSection
+          personalDetails={personalDetails}
+          setPersonalDetails={setPersonalDetails}
+        />
+      ),
     },
     {
       name: "Education",
       component: (
-        <EducationSection setOpenedAccordionValue={setOpenedAccordionValue} />
+        <EducationSection
+          setOpenedAccordionValue={setOpenedAccordionValue}
+          educationEntries={educationEntries}
+          setEducationEntries={setEducationEntries}
+        />
       ),
     },
     {
       name: "Experience",
       component: (
-        <ExperienceSection setOpenedAccordionValue={setOpenedAccordionValue} />
+        <ExperienceSection
+          setOpenedAccordionValue={setOpenedAccordionValue}
+          experienceEntries={experienceEntries}
+          setExperienceEntries={setExperienceEntries}
+        />
       ),
     },
   ];
@@ -58,7 +78,11 @@ function App() {
           {sections}
         </Accordion>
       </div>
-      <CVPreview />
+      <CVPreview
+        personalDetails={personalDetails}
+        educationEntries={educationEntries}
+        experienceEntries={experienceEntries}
+      />
     </MantineProvider>
   );
 }

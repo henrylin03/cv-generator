@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { validateRequiredInput } from "../helpers/formValidation";
 
-export default function PersonalDetailsSection() {
+export default function PersonalDetailsSection({
+  personalDetails,
+  setPersonalDetails,
+}) {
   const [phoneNumber, setPhoneNumber] = useState("");
 
   // HANDLERS
@@ -24,6 +27,19 @@ export default function PersonalDetailsSection() {
     validateRequiredInput(phoneNumberElement);
   };
 
+  const handleChange = (event) => {
+    const inputElement = event.currentTarget;
+
+    if (inputElement.type === "email") validateEmail(event);
+    else if (inputElement.type === "tel") validatePhoneNumber(event);
+    else validateRequiredInput(inputElement);
+
+    setPersonalDetails({
+      ...personalDetails,
+      [inputElement.id]: inputElement.value,
+    });
+  };
+
   return (
     <form className="personalDetails">
       <ul>
@@ -35,7 +51,7 @@ export default function PersonalDetailsSection() {
             placeholder="Jane Smith"
             required
             onBlur={(event) => validateRequiredInput(event.currentTarget)}
-            onChange={(event) => validateRequiredInput(event.currentTarget)}
+            onChange={handleChange}
           />
           <small className="errorMessage">Please enter your full name</small>
         </li>
@@ -48,7 +64,7 @@ export default function PersonalDetailsSection() {
               placeholder="jane.smith@gmail.com"
               required
               onBlur={validateEmail}
-              onChange={validateEmail}
+              onChange={handleChange}
             />
             <small className="errorMessage">
               Please enter a valid email address
@@ -64,7 +80,7 @@ export default function PersonalDetailsSection() {
               required
               value={phoneNumber}
               onBlur={validatePhoneNumber}
-              onChange={validatePhoneNumber}
+              onChange={handleChange}
             />
             <small className="errorMessage">
               Please enter a valid contact number

@@ -2,26 +2,35 @@ import { useState } from "react";
 import EducationForm from "./EducationForm";
 import PreviousEntries from "./PreviousEntries";
 
-export default function EducationSection({ setOpenedAccordionValue }) {
+export default function EducationSection({
+  setOpenedAccordionValue,
+  educationEntries,
+  setEducationEntries,
+}) {
   const [formOpen, setFormOpen] = useState(false);
-  const [entries, setEntries] = useState([]);
 
   const openForm = () => setFormOpen(true);
   const closeForm = () => setFormOpen(false);
-  const addNewEducation = (newEntry) => setEntries([...entries, newEntry]);
+  const addNewEducation = (newEntry) =>
+    setEducationEntries([...educationEntries, newEntry]);
   const handleCancel = () =>
-    entries.length > 0 ? closeForm() : setOpenedAccordionValue("Experience");
+    educationEntries.length > 0
+      ? closeForm()
+      : setOpenedAccordionValue("Experience");
 
   return (
     <article className="educationSection">
-      {!entries.length || formOpen ? (
+      {!educationEntries.length || formOpen ? (
         <EducationForm
           closeForm={closeForm}
           addNewEducation={addNewEducation}
           handleCancel={handleCancel}
         />
       ) : (
-        <PreviousEntries educationEntries={entries} openForm={openForm} />
+        <PreviousEntries
+          educationEntries={educationEntries}
+          openForm={openForm}
+        />
       )}
     </article>
   );

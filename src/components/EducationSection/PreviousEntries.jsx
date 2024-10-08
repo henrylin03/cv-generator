@@ -14,8 +14,9 @@ export default function PreviousEntries({ educationEntries, openForm }) {
           </p>
           <p className="school">{entry.school}</p>
           <p className="dates">
-            {entry.startDate && dateToMonthYearSummarised(entry.startDate)}
-            {entry.endDate && ` - ${dateToMonthYearSummarised(entry.endDate)}`}
+            {entry.startDate &&
+              `${dateToMonthYearSummarised(entry.startDate)} - `}
+            {entry.endDate && dateToMonthYearSummarised(entry.endDate)}
           </p>
         </div>
         <ChangeEntryButtons />
@@ -26,7 +27,7 @@ export default function PreviousEntries({ educationEntries, openForm }) {
   return (
     <>
       <ul className="previousEntries">{previousEntries}</ul>
-      
+
       <Button
         leftSection={<IconCirclePlus />}
         color="#00ccb8"
