@@ -3,26 +3,34 @@ import { IconCirclePlus } from "@tabler/icons-react";
 import { dateToMonthYearSummarised } from "../../helpers/dates";
 import ChangeEntryButtons from "../ChangeEntryButtons";
 
-export default function PreviousEntries({ educationEntries, openForm }) {
-  const previousEntries = educationEntries.map((entry) => {
-    return (
-      <li className="previousEntry" key={entry.key}>
-        <div className="summary">
-          <p className="degree">
-            {entry.degree}
-            <span className="major">{entry.major && ` (${entry.major})`}</span>
-          </p>
-          <p className="school">{entry.school}</p>
-          <p className="dates">
-            {entry.startDate &&
-              `${dateToMonthYearSummarised(entry.startDate)} - `}
-            {entry.endDate && dateToMonthYearSummarised(entry.endDate)}
-          </p>
-        </div>
-        <ChangeEntryButtons />
-      </li>
-    );
-  });
+export default function PreviousEntries({
+  educationEntries,
+  findPreviousEntry,
+  handleAddAnotherEducation,
+  openForm,
+}) {
+  const previousEntries = educationEntries.map((entry) => (
+    <li className="previousEntry" key={entry.key}>
+      <div className="summary">
+        <p className="degree">
+          {entry.degree}
+          <span className="major">{entry.major && ` (${entry.major})`}</span>
+        </p>
+        <p className="school">{entry.school}</p>
+        <p className="dates">
+          {entry.startDate &&
+            `${dateToMonthYearSummarised(entry.startDate)} - `}
+          {entry.endDate && dateToMonthYearSummarised(entry.endDate)}
+        </p>
+      </div>
+
+      <ChangeEntryButtons
+        openForm={openForm}
+        entryKey={entry.key}
+        findPreviousEntry={findPreviousEntry}
+      />
+    </li>
+  ));
 
   return (
     <>
@@ -34,7 +42,7 @@ export default function PreviousEntries({ educationEntries, openForm }) {
         variant="outline"
         size="md"
         className="addAnotherButton"
-        onClick={openForm}
+        onClick={handleAddAnotherEducation}
       >
         Add another education
       </Button>

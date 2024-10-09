@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { Checkbox } from "@mantine/core";
 import { MonthPickerInput } from "@mantine/dates";
-import { dateToMonthYear } from "../helpers/dates";
 
 export default function DateSelector({
   isProfessionalExperience = false,
   formValues,
   setFormValues,
+  selectedStartDate,
+  selectedEndDate,
 }) {
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
+  const [startDate, setStartDate] = useState(selectedStartDate);
+  const [endDate, setEndDate] = useState(selectedEndDate);
   const [positionIsPresent, setPositionIsPresent] = useState(false);
 
   const handleCheckForPresentPosition = (event) => {
@@ -22,15 +23,12 @@ export default function DateSelector({
 
   const handleStartDateChange = (event) => {
     setStartDate(event);
-    setFormValues({ ...formValues, startDate: dateToMonthYear(event) });
+    setFormValues({ ...formValues, startDate: event });
   };
 
   const handleEndDateChange = (event) => {
     setEndDate(event);
-    setFormValues({
-      ...formValues,
-      endDate: dateToMonthYear(event),
-    });
+    setFormValues({ ...formValues, endDate: event });
   };
 
   return (

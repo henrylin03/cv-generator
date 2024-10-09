@@ -4,17 +4,12 @@ import { validateRequiredInput } from "../../helpers/formValidation";
 import { Button } from "@mantine/core";
 
 export default function EducationForm({
-  closeForm,
   addNewEducation,
+  editEducation,
+  selectedEntry,
   handleCancel,
 }) {
-  const [formValues, setFormValues] = useState({
-    degree: "",
-    major: "",
-    school: "",
-    startDate: "",
-    endDate: "",
-  });
+  const [formValues, setFormValues] = useState(selectedEntry);
 
   // HANDLERS
   const handleInputBlur = (event) => validateRequiredInput(event.currentTarget);
@@ -30,17 +25,20 @@ export default function EducationForm({
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (event.currentTarget.checkValidity()) {
-      const newKey = crypto.randomUUID();
-      addNewEducation({ ...formValues, key: newKey });
-      closeForm();
-    } else {
+    if (!event.currentTarget.checkValidity()) {
       const requiredInputElements =
         event.currentTarget.querySelectorAll("input[required]");
       requiredInputElements.forEach((element) =>
         validateRequiredInput(element)
       );
+      return;
     }
+
+    const isNewEntry = () => selectedEntry.key === "";
+    if (isNewEntry()) {
+      const newKey = crypto.randomUUID();
+      addNewEducation({ ...formValues, key: newKey });
+    } else editEducation(formValues);
   };
 
   return (
@@ -89,7 +87,12 @@ export default function EducationForm({
           </small>
         </li>
         <li className="dateSelectors">
-          <DateSelector formValues={formValues} setFormValues={setFormValues} />
+          <DateSelector
+            formValues={formValues}
+            setFormValues={setFormValues}
+            selectedStartDate={selectedEntry.startDate || null}
+            selectedEndDate={selectedEntry.endDate || null}
+          />
         </li>
       </ul>
 
