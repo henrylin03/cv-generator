@@ -4,17 +4,12 @@ import { validateRequiredInput } from "../../helpers/formValidation";
 import { Button } from "@mantine/core";
 
 export default function ExperienceForm({
-  closeForm,
   addNewExperience,
+  editExperience,
+  selectedEntry,
   handleCancel,
 }) {
-  const [formValues, setFormValues] = useState({
-    jobTitle: "",
-    employer: "",
-    startDate: "",
-    endDate: "",
-    jobDescription: "",
-  });
+  const [formValues, setFormValues] = useState(selectedEntry);
 
   // HANDLERS
   const handleInputBlur = (event) => validateRequiredInput(event.currentTarget);
@@ -30,17 +25,20 @@ export default function ExperienceForm({
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (event.currentTarget.checkValidity()) {
-      const newKey = crypto.randomUUID();
-      addNewExperience({ ...formValues, key: newKey });
-      closeForm();
-    } else {
+    if (!event.currentTarget.checkValidity()) {
       const requiredInputElements =
         event.currentTarget.querySelectorAll("input[required]");
       requiredInputElements.forEach((element) =>
         validateRequiredInput(element)
       );
+      return;
     }
+
+    const isNewEntry = () => selectedEntry.key === "";
+    if (isNewEntry()) {
+      const newKey = crypto.randomUUID();
+      addNewExperience({ ...formValues, key: newKey });
+    } else editExperience(formValues);
   };
 
   return (
@@ -81,6 +79,9 @@ export default function ExperienceForm({
             isProfessionalExperience={true}
             formValues={formValues}
             setFormValues={setFormValues}
+            selectedStartDate={selectedEntry.startDate || null}
+            selectedEndDate={selectedEntry.endDate || null}
+            isPresentPosition={selectedEntry.isPresent}
           />
         </li>
         <li>

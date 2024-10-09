@@ -8,16 +8,20 @@ export default function DateSelector({
   setFormValues,
   selectedStartDate,
   selectedEndDate,
+  isPresentPosition = false,
 }) {
   const [startDate, setStartDate] = useState(selectedStartDate);
-  const [endDate, setEndDate] = useState(selectedEndDate);
-  const [positionIsPresent, setPositionIsPresent] = useState(false);
+  const [endDate, setEndDate] = useState(
+    isPresentPosition ? null : selectedEndDate
+  );
+  const [positionIsPresent, setPositionIsPresent] = useState(isPresentPosition);
 
   const handleCheckForPresentPosition = (event) => {
     setPositionIsPresent(event.currentTarget.checked);
     setFormValues({
       ...formValues,
       endDate: "Present",
+      isPresent: event.currentTarget.checked,
     });
   };
 

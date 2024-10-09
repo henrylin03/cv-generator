@@ -3,6 +3,7 @@ import { IconPencil, IconTrashX } from "@tabler/icons-react";
 
 export default function ChangeEntryButtons({
   openForm,
+  deleteEntry,
   findPreviousEntry,
   entryKey,
 }) {
@@ -27,6 +28,7 @@ export default function ChangeEntryButtons({
         color="gray"
         size="lg"
         aria-label="Delete"
+        onClick={() => deleteEntry(entryKey)}
       >
         <IconTrashX style={{ width: "70%", height: "70%" }} />
       </ActionIcon>

@@ -28,9 +28,22 @@ export default function EducationSection({
     openForm();
   };
 
+  const handleCancel = () =>
+    educationEntries.length > 0
+      ? closeForm()
+      : setOpenedAccordionValue("Experience");
+
   // OTHER FUNCTIONS
   const addNewEducation = (newEntry) => {
     setEducationEntries([...educationEntries, newEntry]);
+    closeForm();
+  };
+
+  const deleteEducation = (selectedEntryKey) => {
+    setEducationEntries(
+      educationEntries.filter((entry) => entry.key !== selectedEntryKey)
+    );
+    setSelectedEntry(blankEducationEntry);
     closeForm();
   };
 
@@ -49,11 +62,6 @@ export default function EducationSection({
     setSelectedEntry(educationEntry);
   };
 
-  const handleCancel = () =>
-    educationEntries.length > 0
-      ? closeForm()
-      : setOpenedAccordionValue("Experience");
-
   return (
     <article className="educationSection">
       {!educationEntries.length || formOpen ? (
@@ -66,6 +74,7 @@ export default function EducationSection({
       ) : (
         <PreviousEntries
           educationEntries={educationEntries}
+          deleteEducation={deleteEducation}
           findPreviousEntry={findPreviousEntry}
           handleAddAnotherEducation={handleAddAnotherEducation}
           openForm={openForm}

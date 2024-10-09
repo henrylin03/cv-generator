@@ -3,7 +3,13 @@ import { IconCirclePlus } from "@tabler/icons-react";
 import { dateToMonthYearSummarised } from "../../helpers/dates";
 import ChangeEntryButtons from "../ChangeEntryButtons";
 
-export default function PreviousEntries({ experienceEntries, openForm }) {
+export default function PreviousEntries({
+  experienceEntries,
+  deleteExperience,
+  findPreviousEntry,
+  handleAddAnotherExperience,
+  openForm,
+}) {
   const displayEndDate = (endDate) => {
     if (!endDate) return;
     if (endDate === "Present") return "Present";
@@ -22,7 +28,13 @@ export default function PreviousEntries({ experienceEntries, openForm }) {
             {displayEndDate(entry.endDate)}
           </p>
         </div>
-        <ChangeEntryButtons />
+
+        <ChangeEntryButtons
+          openForm={openForm}
+          deleteEntry={deleteExperience}
+          entryKey={entry.key}
+          findPreviousEntry={findPreviousEntry}
+        />
       </li>
     );
   });
@@ -37,7 +49,7 @@ export default function PreviousEntries({ experienceEntries, openForm }) {
         variant="outline"
         size="md"
         className="addAnotherButton"
-        onClick={openForm}
+        onClick={handleAddAnotherExperience}
       >
         Add another experience
       </Button>

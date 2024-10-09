@@ -5,6 +5,7 @@ import ChangeEntryButtons from "../ChangeEntryButtons";
 
 export default function PreviousEntries({
   educationEntries,
+  deleteEducation,
   findPreviousEntry,
   handleAddAnotherEducation,
   openForm,
@@ -26,6 +27,7 @@ export default function PreviousEntries({
 
       <ChangeEntryButtons
         openForm={openForm}
+        deleteEntry={deleteEducation}
         entryKey={entry.key}
         findPreviousEntry={findPreviousEntry}
       />
