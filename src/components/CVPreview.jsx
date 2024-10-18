@@ -2,6 +2,20 @@ import { Paper } from "@mantine/core";
 import { IconMail, IconPhone } from "@tabler/icons-react";
 import { dateToMonthYearSummarised } from "../helpers/dates";
 
+const addSpaces = (phoneNumber) => {
+  if (phoneNumber.length < 5) return phoneNumber;
+
+  const indexesOfDigitsWithSpaceAfter = [3, 3 + 3];
+  let res = "";
+
+  for (let i = 0; i < phoneNumber.length; i++) {
+    if (!indexesOfDigitsWithSpaceAfter.includes(i)) res += phoneNumber[i];
+    else res += phoneNumber[i] + " ";
+  }
+
+  return res;
+};
+
 export default function CVPreview({
   personalDetails,
   educationEntries,
@@ -60,7 +74,9 @@ export default function CVPreview({
             {personalDetails.phone && (
               <div className="container">
                 <IconPhone />
-                <p className="phoneDisplayed">{personalDetails.phone}</p>
+                <p className="phoneDisplayed">
+                  {addSpaces(personalDetails.phone)}
+                </p>
               </div>
             )}
           </div>
