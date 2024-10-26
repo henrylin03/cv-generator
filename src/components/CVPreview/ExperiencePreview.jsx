@@ -1,4 +1,4 @@
-import { dateToMonthYearSummarised } from "../../helpers/dates";
+import { dateToMonthYearSummarised } from "../../helpers";
 
 const displayExperienceEndDate = (endDate) => {
   if (!endDate) return;

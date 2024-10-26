@@ -1,4 +1,4 @@
-import { dateToMonthYearSummarised } from "../../helpers/dates";
+import { dateToMonthYearSummarised } from "../../helpers";
 
 export default function EducationPreview({ educationEntries }) {
   const educationPreviewed = educationEntries.map((entry) => (

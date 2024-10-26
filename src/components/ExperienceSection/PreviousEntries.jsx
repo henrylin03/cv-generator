@@ -1,6 +1,6 @@
 import { Button } from "@mantine/core";
 import { IconCirclePlus } from "@tabler/icons-react";
-import { dateToMonthYearSummarised } from "../../helpers/dates";
+import { dateToMonthYearSummarised } from "../../helpers";
 import ChangeEntryButtons from "../ChangeEntryButtons";
 
 export default function PreviousEntries({

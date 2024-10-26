@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { validateRequiredInput } from "../helpers/formValidation";
+import { validateRequiredInput } from "../helpers";
 
 export default function PersonalDetailsSection({
   personalDetails,

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import DateSelector from "../DateSelector";
-import { validateRequiredInput } from "../../helpers/formValidation";
+import { validateRequiredInput } from "../../helpers";
 import { Button } from "@mantine/core";
 
 export default function ExperienceForm({

@@ -1,3 +1,9 @@
+import dayjs from "dayjs";
+
+const dateToMonthYear = (date) => dayjs(new Date(date)).format("MMMM YYYY");
+
+const dateToMonthYearSummarised = (date) => dayjs(new Date(date)).format("MMM YYYY");
+
 const validateRequiredInput = (inputElement) => {
   if (!inputElement.hasAttribute("required")) return;
 
@@ -6,4 +12,4 @@ const validateRequiredInput = (inputElement) => {
   else containerElement.classList.add("error");
 };
 
-export { validateRequiredInput };
+export { dateToMonthYear, dateToMonthYearSummarised, validateRequiredInput };
