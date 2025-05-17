@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+
+:root {
+	/* font-sizes */
+	--xs: 0.69rem;
+	--sm: 0.83rem;
+	--md: 1rem;
+	--md-plus: 1.2rem;
+	--lg: 1.44rem;
+	--xl: 1.73rem;
+	--xxl: 2.07rem;
+	--xxxl: 2.49rem;
+	--max-lg: 2.99rem;
+
+	/* colours */
+	--dark: #2b2d42;
+	--medium: #8d99ae;
+	--light: #edf2f4;
+	--light-accent: #ef233c;
+	--accent: #d90429;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Nunito Sans", sans-serif;
+}
+
+.inner {
+	margin: 0 auto;
+	max-width: 1400px;
+	padding: var(--lg) var(--xxl);
+}
+
+h1,
+h2 {
+	font-family: "DM Sans", "Nunito Sans", sans-serif;
+	text-wrap: pretty;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.paragraphText {
+	color: var(--dark);
+	text-wrap: pretty;
+}
+
+button {
+	cursor: pointer;
+	border: none;
+	outline: none;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 768px) {
+	.inner {
+		padding: var(--md) var(--lg);
+	}
+}

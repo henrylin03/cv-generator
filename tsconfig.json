@@ -1,0 +1,13 @@
+{
+	"files": [],
+	"references": [
+		{ "path": "./tsconfig.app.json" },
+		{ "path": "./tsconfig.node.json" }
+	],
+	"include": [".react-router/types/**/*"],
+	"compilerOptions": {
+		"strict": true,
+		"rootDirs": [".", "./.react-router/types"],
+		"verbatimModuleSyntax": true
+	}
+}
