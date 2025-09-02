@@ -30,6 +30,10 @@
 	object-position: center;
 }
 
+.button {
+	width: fit-content;
+}
+
 /* MEDIA QUERIES */
 @media (max-width: 747px) {
 	.inner {
@@ -41,5 +45,6 @@
 
 	.textContainer {
 		text-align: center;
+		align-items: center;
 	}
 }

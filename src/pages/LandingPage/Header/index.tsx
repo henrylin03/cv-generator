@@ -1,9 +1,8 @@
-import type { JSX } from "react";
 import Branding from "../../../components/Branding";
 import CTAButton from "../../../components/CTAButton";
 import styles from "./Header.module.css";
 
-const Header = (): JSX.Element => (
+const Header = () => (
 	<header className={styles.header}>
 		<div className={styles.flex}>
 			<Branding />

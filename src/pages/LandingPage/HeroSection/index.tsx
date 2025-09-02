@@ -1,8 +1,7 @@
-import type { JSX } from "react";
 import CTAButton from "../../../components/CTAButton";
 import styles from "./HeroSection.module.css";
 
-const HeroSection = (): JSX.Element => (
+const HeroSection = () => (
 	<section className={styles.hero}>
 		<div className={styles.inner}>
 			<div className={styles.textContainer}>
@@ -10,10 +9,10 @@ const HeroSection = (): JSX.Element => (
 					Generate your professional CV for free
 				</h1>
 				<p className="paragraphText">
-					Make a professional resume within minutes to help you land
-					your dream job.
+					Make a professional resume within minutes to help you land your dream
+					job.
 				</p>
-				<CTAButton text="Create a new resume" />
+				<CTAButton text="Create a new resume" className={styles.button} />
 			</div>
 			<img
 				className={styles.img}
