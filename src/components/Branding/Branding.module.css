@@ -1,0 +1,29 @@
+.branding {
+	display: flex;
+	align-items: center;
+	gap: var(--xs);
+}
+
+.logo {
+	width: var(--md-plus);
+}
+
+.brandingText {
+	color: var(--light);
+	font-family: "Nunito Sans", "DM Sans", sans-serif;
+	font-size: var(--md-plus);
+}
+
+@media (max-width: 399px) {
+	.branding {
+		gap: var(--xs);
+	}
+
+	.logo {
+		width: var(--md);
+	}
+
+	.brandingText {
+		font-size: var(--md);
+	}
+}

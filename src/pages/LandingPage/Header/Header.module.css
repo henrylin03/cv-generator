@@ -1,0 +1,22 @@
+.header {
+	background-color: var(--dark);
+	width: 100%;
+}
+
+.flex {
+	composes: inner from global;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 489px) {
+	.headerButton {
+		display: none;
+	}
+
+	.flex {
+		justify-content: center;
+	}
+}
