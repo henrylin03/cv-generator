@@ -1,3 +1,5 @@
+import { type Url } from "next/dist/shared/lib/router/router";
+
 export const APP_STEPS = [
 	{ title: "Contact details", route: "/contact-details" },
 	{ title: "Education", route: "/education" },
@@ -5,11 +7,7 @@ export const APP_STEPS = [
 	{ title: "Preview", route: "/preview" },
 ] as const;
 
-type PageRoute = (typeof APP_STEPS)[number]["route"];
-
-export const getNextStepRoute = (
-	currentPathName: PageRoute,
-): PageRoute | null => {
+export const getNextStepRoute = (currentPathName: Url): Url | null => {
 	const idxOfLastStep = APP_STEPS.length - 1;
 	const currentStepObject = APP_STEPS.find(
 		(step) => step.route === currentPathName,
@@ -22,9 +20,7 @@ export const getNextStepRoute = (
 	return APP_STEPS[idxOfCurrentStep + 1].route;
 };
 
-export const getPreviousStepRoute = (
-	currentPathName: PageRoute,
-): PageRoute | null => {
+export const getPreviousStepRoute = (currentPathName: Url): Url | null => {
 	const currentStepObject = APP_STEPS.find(
 		(step) => step.route === currentPathName,
 	);
