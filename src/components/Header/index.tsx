@@ -1,19 +1,8 @@
 import Link from "next/link";
+import { APP_STEPS as PAGES } from "@/appSteps";
 import styles from "./Header.module.css";
 
-interface Page {
-	title: string;
-	route: string;
-}
-
 const Header = () => {
-	const PAGES: Page[] = [
-		{ title: "Contact details", route: "/contact-details" },
-		{ title: "Education", route: "/education" },
-		{ title: "Experience", route: "/experience" },
-		{ title: "Preview", route: "/preview" },
-	];
-
 	return (
 		<header>
 			<nav>
