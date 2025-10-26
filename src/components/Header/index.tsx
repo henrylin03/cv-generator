@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { APP_STEPS as PAGES } from "@/appSteps";
-import styles from "./Header.module.css";
 
 const Header = () => {
 	return (

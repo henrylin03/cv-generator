@@ -1,12 +1,16 @@
+"use client"
+
 import Link from "next/link";
-import styles from "./Footer.module.css";
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
-	return (
-		<footer>
-			<Link href="#">Next step</Link>
-		</footer>
-	);
+    const currentPath = usePathname();
+
+    return (
+        <footer>
+            <Link href="#">Next step</Link>
+        </footer>
+    );
 };
 
 export default Footer;
